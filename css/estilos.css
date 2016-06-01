@@ -1,0 +1,27 @@
+*, *::before, *::after{
+	box-sizing: border-box;
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+#breadcrumbs{
+	padding: 8px 16px;
+	list-style: none;
+	background-color: inherit;
+	border-radius: 3px;
+	white-space: nowrap;
+	font-size: 16px;
+}
+#breadcrumbs li{
+	display: inline-block;
+	padding: 8px 0;
+	color: #000;
+}
+#breadcrumbs li:not(:last-child)::after{
+	content: "\00a0/\00a0";
+}
+#breadcrumbs li a{
+	color: #2196F3;
+	text-decoration: none;
+}
