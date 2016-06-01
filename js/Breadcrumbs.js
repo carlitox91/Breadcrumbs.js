@@ -10,7 +10,7 @@ function breadcrums () {
 	var listItem; // Guarda temporalmente cada item de las breadcrumbs
 	var link; // Guarda el path
 	var path; // Guarda los enlaces
-	var home = "SICCA" // Texto que aparecerá en el enlace raíz
+	var home = "Home" // Texto que aparecerá en el enlace raíz
 	var URLArray=locacionActual.split("/"); // Separando la locación actual por el caracter "/"
 	var breadcrumbs = document.getElementById("breadcrumbs"); // Aquí se agregará la lista de enlaces
 
