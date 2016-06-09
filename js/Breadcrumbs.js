@@ -19,10 +19,8 @@ function breadcrums () {
 	"default"
 	];
 	var regexDefaultPages = new RegExp("^"+defaultPages.join("|^"), "i");
-	console.log('regexDefaultPages', regexDefaultPages)
 	var home = "Home" // Texto que aparecerá en el enlace raíz
 	var URLArray=locacionActual.split("/"); // Separando la locación actual por el caracter "/"
-	console.log('URLArray', URLArray)
 	var breadcrumbs = document.getElementById("breadcrumbs"); // Aquí se agregará la lista de enlaces
 
 	// Si la página actual está vacía, es index.* o default.*, se remueve del arreglo
