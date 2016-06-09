@@ -9,25 +9,34 @@ function breadcrums () {
 	var locacionActual = decodeURI(location.pathname).replace(/\.\w{3,5}$/,'');
 	var listItem; // Guarda temporalmente cada item de las breadcrumbs
 	var link; // Guarda el path
-	var path; // Guarda los enlaces
+	var path = "/"; // Es necesario agregar el "/" inicial a las URLs
+	/*
+	Lista de nombres de archivo que no quieres que aparezcan en las breadcrums
+	Agrega los nombres de los arhivos SIN extensión. Por ejemplo, index (de index.html)
+	*/
+	var defaultPages=[
+	"index",
+	"default"
+	];
+	var regexDefaultPages = new RegExp("^"+defaultPages.join("|^"), "i");
+	console.log('regexDefaultPages', regexDefaultPages)
 	var home = "Home" // Texto que aparecerá en el enlace raíz
 	var URLArray=locacionActual.split("/"); // Separando la locación actual por el caracter "/"
+	console.log('URLArray', URLArray)
 	var breadcrumbs = document.getElementById("breadcrumbs"); // Aquí se agregará la lista de enlaces
 
 	// Si la página actual está vacía, es index.* o default.*, se remueve del arreglo
-	if (URLArray[URLArray.length-1] == '' || URLArray[URLArray.length-1].match(/^index|^default/i) ) {
+	if (URLArray[URLArray.length-1] == '' || URLArray[URLArray.length-1].match(regexDefaultPages) ) {
 		URLArray.length--;
 	}
 	for (i = 0; i < URLArray.length-1; i++) {  // Ciclo para mostrar los links
 		listItem = document.createElement("li"); // Se crea un elemento de lista
 		link = document.createElement("a"); // Se crea un elemento enlace
 		if (i==0) {
-			path = "/"; // Es necesario agregar el "/" inicial a las URLs
 			link.innerHTML=home; // Se agrega el texto del enlace
 		} else {
 			path += URLArray[i] + "/"; // Al path se le suma la carpeta que sigue
 			link.innerHTML=URLArray[i].unCamelCase();
-			console.log('link.innerHTML', link.innerHTML)
 		}
 		link.href=path; // Se agrega el atributo href con el valor que tiene path
 		listItem.appendChild(link); // A listItem se le añade link como hijo
