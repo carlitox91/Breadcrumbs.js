@@ -16,6 +16,15 @@ Por último agrega estas líneas en la sección donde necesites que aparezcan la
 	<ul id="breadcrumbs"></ul>
 </nav>
 ```
+### Personalización
+Puedes personalizar los archivos que no se mostrarán en las migas de pan, para ello modifica la siguiente variable
+```sh
+var defaultPages=[
+	"index",
+	"default",
+	"otraPagina"
+];
+```
 
 ###Licencia
 ----
