@@ -25,6 +25,7 @@ var defaultPages=[
 	"otraPagina"
 ];
 ```
+Los nombres de los archivos no deben tener extensión
 
 ###Licencia
 ----
